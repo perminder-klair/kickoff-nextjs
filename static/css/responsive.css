@@ -1,0 +1,233 @@
+
+/* ------- RESPONSIVE CSS CONTENTS -------
+
+	- 1) Small Desktop and Tablet Landscape (992px - 1099px)
+
+	- 2) Mobile + Tablet (991px and below)
+
+	- 3) Tablet only (768px - 991px)
+
+	- 4) Mobile only (767px and below)
+
+ ------------------------------------ */
+
+
+
+/* --- 1) Small Desktop and Tablet Landscape --- */
+@media (min-width:992px) and (max-width:1099px) {
+
+	/* -- portfolio page -- */
+
+	#portfolio-items.boxed-width,#portfolio-items.full-width{max-width:100%;}
+
+}
+
+
+
+/* --- 2) mobile + tablet styles --- */
+@media (max-width: 991px) {
+
+	/* -- ALL -- */
+
+	.page-section{padding:70px 0;}
+
+
+	/* -- HEADER -- */
+
+		.header-main{height:70px;}
+		.header-wide .container{width:100%;}
+		#main-content{padding-top:70px!important;}
+
+
+		/* -- nav drop down button / hamburger icon -- */
+
+		#mobile-nav-button{width:25px;height:24px;float:right;margin-top:26px;}
+
+		#mobile-nav-icon {width:100%;height:100%;position:relative;cursor:pointer;-webkit-transform:rotate(0deg);transform:rotate(0deg);-webkit-transition:.5s ease-in-out;transition:.5s ease-in-out;-moz-transition:.5s ease-in-out;-o-transition:.5s ease-in-out;}
+		#mobile-nav-icon span {display:block;position:absolute;height:2px;width:100%;background-color:#111111;border-radius:2px;opacity:1;left:0;border-radius:2px;-webkit-transform:rotate(0deg);transform:rotate(0deg);-webkit-transition:.25s ease-in-out;transition:.25s ease-in-out;-moz-transition:.25s ease-in-out;-o-transition:.25s ease-in-out;}
+		#mobile-nav-icon span:nth-child(1){top:0;}
+		#mobile-nav-icon span:nth-child(2),#mobile-nav-icon span:nth-child(3){top:8px;}
+		#mobile-nav-icon span:nth-child(4){top:16px;}
+
+		#mobile-nav-button.active{margin-right:15px;}
+		#mobile-nav-button.active #mobile-nav-icon span:nth-child(1),#mobile-nav-button.active #mobile-nav-icon span:nth-child(4){top:10px;width:0;left:50%}
+		#mobile-nav-button.active #mobile-nav-icon span:nth-child(2){-webkit-transform:rotate(45deg);transform:rotate(45deg);-moz-transition:rotate(45deg);-o-transition:rotate(45deg);}
+		#mobile-nav-button.active #mobile-nav-icon span:nth-child(3){-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-moz-transition:rotate(-45deg);-o-transition:rotate(-45deg);}
+
+
+		/* -- main menu drop down -- */
+
+		#header-nav{margin-top:0px;width:100%;text-align:center;display:none;}
+		.menu li{width:100%;float:left;margin:0;border-bottom:none;}
+		.menu li:last-child{margin-right:0px;}
+		#header-nav .menu-item > a{font-size:12px;letter-spacing:1.5px;float:none;display:block;padding:14px 0;margin-left:0;margin-right:0;text-align:left;padding-left:15px;border-bottom:1px solid rgba(0,0,0,0.05);}
+		.menu > li > a:hover, .menu > .current-menu-item > a,.submenu-active{border-bottom:none;background:none;background-image:none;}
+
+
+		/* -- sub menu drop down -- */
+
+		.menu-item .sub-drop-icon{display:none;}
+		.menu-item-has-children .sub-drop-icon{font-size:20px;position:absolute;right:18px;top:14px;color:#111111;display:block;}
+		.menu .sub-menu{background-color:#ffffff;position:static;width:auto;display:none;padding:0 15px;box-shadow:0px 0px 0px 0px;border-top:1px solid #c7c7c7;}
+		.menu li:last-child .sub-menu li:last-child{border:0;}
+		.menu .sub-menu li{padding:0}
+		.menu .sub-menu li a{color:#111111!important;padding:14px 0 14px 15px;border-bottom:1px solid rgba(0,0,0,0.05);}
+		.menu .sub-menu li a:hover{background-color:transparent;}
+		.menu .sub-menu:after {content:'';display: block;font-size:0;height:0;clear:both;}
+
+		.menu .sub-menu .sub-drop-icon{top:14px;}
+
+
+		/* -- mobile sidebar menu -- */
+
+		#header-nav{position:fixed;z-index:1000;height:100%;width:65%;top:0;background-color:#ffffff;overflow:auto;display:block;right:-1000px;}
+		#header-nav.menu-active{right:0!important;-webkit-transition:.25 ease-in-out;transition:.25s ease-in-out;-moz-transition:.25s ease-in-out;-o-transition:.25s ease-in-out;}
+
+		#main-content,.medium-header-container,footer{transform:translate(0);-webkit-transition:.35s ease-in-out;transition:.35s ease-in-out;-moz-transition:.35s ease-in-out;-o-transition:.35s ease-in-out;}
+
+
+	/* -- footer -- */
+
+	#scroll-top{position:static;margin:20px auto 0;}
+
+
+	/* -- post sidebar -- */
+
+	.left-sidebar,.right-sidebar{padding:0 15px;}
+
+
+	/* -- home page -- */
+
+	#portfolio-items.boxed-width,#portfolio-items.full-width{width:100%;max-width:100%;}
+
+
+	/* -- about page -- */
+
+	.team-hover{opacity:1;background-color: rgba(17,17,17,0.5);}
+
+
+	/* -- contact page -- */
+
+	#contact-details{margin-bottom:60px;}
+	#contact-details span, #contact-details a{font-size:14px;}
+
+	.contact-input,.contact-text{font-size:16px;}
+
+
+	/* -- news list page style two -- */
+
+	.news-list-2 .news-item,.news-list-2 li:nth-last-child(-n+3) .news-item{margin-bottom:60px;}
+	.news-list-2 li:last-child .news-item{margin-bottom:0;}
+
+
+	/* -- single portfolio page -- */
+
+	.single-portfolio{padding-bottom:0;}
+	#portfolio-slideshow,#portfolio-slideshow .owl-stage-outer{height:auto!important;margin-bottom:40px;}
+
+
+	/* -- single news page -- */
+
+	.single-news{padding-bottom:0;}
+
+}
+
+
+
+/* --- 3) tablet only --- */
+@media (min-width:768px) and (max-width: 991px) {
+
+	/* -- header -- */
+
+	#header-nav{width:275px;}
+
+
+	/* -- page header -- */
+
+	.page-header{min-height:250px;}
+	.page-head-inside h1{font-size:30px;line-height:36px;}
+	.page-head-inside p{font-size:13px;}
+
+
+	/* -- home page-- */
+
+	#home-featured-slideshow, .featured-slide,#home-featured-banner{height:550px;max-height:550px;}
+	.featured-content{width:50%;}
+	.featured-content h2{line-height:45px;}
+	.featured-content p{font-size:14px;line-height:21px;}
+
+
+	/* -- portfolio page -- */
+
+	#portfolio-item-filter{margin-bottom:20px;}
+	#portfolio-item-filter li{margin-bottom:10px;padding:10px 15px;}
+	#portfolio-items.boxed-width{width:750px;}
+
+}
+
+
+
+/* --- 4) mobile only --- */
+@media (max-width:767px) {
+
+	/* -- basic styling -- */
+
+	.primary-button{font-size:12px;line-height:14px;padding:14px 23px 13px;}
+	.secondary-button{font-size:12px;line-height:14px;padding:12px 25px 11px;}
+
+
+	/* -- page header -- */
+
+	.page-header{min-height:200px;}
+	.page-head-inside h1{font-size:26px;line-height:32px;}
+	.page-head-inside p{font-size:13px;}
+
+
+	/* -- post navigation -- */
+
+	.post-nav-item p{font-size:12px;line-height:14px;margin-bottom:0;}
+
+
+	/* -- post sidebar -- */
+
+	.post-sidebar .sidebar-widget:first-child{margin-top:60px;}
+
+
+	/* -- home page -- */
+
+	#home-featured-slideshow,.featured-slide,#home-featured-banner{height:450px;max-height:450px;}
+	.home-section .slideshow-btn{display:none;}
+
+	.featured-content{width:100%;padding:30px;}
+	.featured-content h2{font-size:29px;line-height:34px;}
+	.featured-content p{font-size:14px;line-height:19px;margin-bottom:35px;}
+	.featured-left,.featured-right{text-align:center;}
+
+
+	/* -- portfolio page -- */
+
+	#portfolio-item-filter{margin-bottom:20px;}
+	#portfolio-item-filter li{display:block;margin-bottom:10px;margin-right:0;padding:10px 15px;}
+
+	#portfolio-items{height:auto!important;}
+	#portfolio-items li{position:static!important;}
+
+
+	/* -- about page -- */
+
+	.about-item,.team-item{margin-bottom:40px;}
+	.about-items li:last-child .about-item,.team-section li:last-child .team-item{margin-bottom:0;}
+
+
+	/* -- blog posts page - style three -- */
+
+	.blog-list-3 .blog-item{border-top:1px solid #eeeeee!important;padding-top:50px!important;}
+	.blog-list-3 li:first-child .blog-item{border:0!important;padding-top:0!important;}
+	.blog-list-3 li:last-child .blog-item{margin-bottom:0!important;}
+
+
+	/* -- contact page -- */
+
+	#contact-map-container, #contact-map{height:400px;}
+
+}
