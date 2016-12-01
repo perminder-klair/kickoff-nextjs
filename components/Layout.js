@@ -20,6 +20,7 @@ const Layout = ({ children, title }) => (
             <link href="static/css/structure.css" rel="stylesheet" type="text/css" />
             <link href="static/css/style.css" rel="stylesheet" type="text/css" />
             <link href="static/css/responsive.css" rel="stylesheet" type="text/css" />
+            <link href="static/css/timeline.css" rel="stylesheet" type="text/css" />
             <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css" />
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css" />
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" />

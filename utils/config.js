@@ -13,5 +13,9 @@ export default {
 
     SITE_URL: 'http://www.webonise.co.uk',
     // API_URL: 'http://localhost:5000',
-    API_URL: 'https://webonise-api-dognisypzj.now.sh'
+    API_URL: 'https://webonise-api.lp6w.flynnhub.com',
+    STACKABLE_URL: 'https://api.stackable.space/v1',
+    STACKABLE_KEY: 'eeFuYBqGA8Qv',
+    STACKABLE_TIMELINE: 'u7GWnKC5QT4wBZYds',
+    STACKABLE_SKILLS: '2LM4yZiRvybxrHSbc'
 };
