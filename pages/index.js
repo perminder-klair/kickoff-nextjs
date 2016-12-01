@@ -4,6 +4,11 @@ import fetch from 'isomorphic-fetch';
 
 import Layout from '../components/Layout';
 import GithubItem from '../components/GithubItem';
+import TweetItem from '../components/TweetItem';
+
+const {
+    API_URL
+} = require('../utils/config').default;
 
 const TITLE = 'Parminder Singh Klair';
 
@@ -11,12 +16,14 @@ class Home extends React.Component {
     static async getInitialProps() {
         const githubRes = await fetch('https://api.github.com/users/perminder-klair/repos?per_page=6');
         const github = await githubRes.json();
-        // console.log('data', data);
-        return { github };
+        const twitterRes = await fetch(`${API_URL}/twitter/feed`);
+        const twitter = await twitterRes.json();
+
+        return { github, twitter };
     }
 
     render() {
-        const { github } = this.props;
+        const { github, twitter } = this.props;
 
         return (
             <Layout title={TITLE}>
@@ -53,7 +60,10 @@ class Home extends React.Component {
 
                 <section className="page-section">
                     <div className="container">
-                        <h3>Tweets here</h3>
+                        <ul className="row">
+                            {twitter.map(item => <TweetItem key={item.id} item={item} />)}
+                        </ul>
+                        <a href="https://twitter.com/pinku1" className="primary-button font-reg hov-bk" target="_blank" rel="noopener noreferrer">all tweets</a>
                     </div>
                 </section>
 
@@ -68,7 +78,8 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-    github: React.PropTypes.array
+    github: React.PropTypes.array,
+    twitter: React.PropTypes.array
 };
 
 export default Home;
