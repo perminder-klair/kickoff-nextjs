@@ -49,7 +49,10 @@ export default () => (
                     <div className="col-xlarge-8">
                         <div id="success-message" className="notification"><p className="font-reg" /></div>
                         <div id="error-message" className="notification"><p className="font-reg" /></div>
-                        <form id="contact-form" method="post" name="contact-form">
+                        <form
+                            id="contact-form"
+                            method="post"
+                            name="contact-form">
                             <div className="row">
                                 <div className="col-xlarge-6 col-medium-6">
                                     <input type="text" className="contact-input font-reg" name="contact_name" id="contact_name" value="" placeholder="Your Name" tabIndex="1" />

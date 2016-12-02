@@ -17,6 +17,7 @@ const Layout = ({ children, title }) => (
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta charSet="UTF-8" />
             <meta name="author" content={APP_AUTHOR} />
+            <base href="/" target="_blank" />
             <link href="static/css/structure.css" rel="stylesheet" type="text/css" />
             <link href="static/css/style.css" rel="stylesheet" type="text/css" />
             <link href="static/css/responsive.css" rel="stylesheet" type="text/css" />
