@@ -21,16 +21,22 @@ export default () => (
                 <nav id="header-nav">
                     <ul id="nav-ul" className="menu font-reg clearfix">
                         <li className="menu-item">
-                            <Link href="/"><a>about me</a></Link>
+                            <Link href="/resume"><a>about me</a></Link>
                         </li>
                         <li className="menu-item">
-                            <Link href="/resume"><a>resume</a></Link>
+                            <Link href="/portfolio"><a>portfolio</a></Link>
+                        </li>
+                        <li className="menu-item">
+                            <a>blog</a>
                         </li>
                         <li className="menu-item">
                             <Link href="/media"><a>media</a></Link>
                         </li>
                         <li className="menu-item">
                             <Link href="/contact"><a>contact</a></Link>
+                        </li>
+                        <li className="menu-item">
+                            <Link href="/contact"><a><strong>start a project</strong></a></Link>
                         </li>
                     </ul>
                 </nav>
