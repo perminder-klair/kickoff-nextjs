@@ -1,5 +1,5 @@
 {
-  "name": "webonise",
+  "name": "nextjs-stackable",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,8 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "next": "^1.1.2",
-    "raw-loader": "^0.5.1",
-    "react-markdown": "^2.4.2",
     "underscore": "^1.8.3",
     "underscore.string": "^3.3.4"
   },

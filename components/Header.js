@@ -2,46 +2,15 @@ import React from 'react';
 import Link from 'next/link';
 
 export default () => (
-    <header>
-        <div className="header-main header-wide">
-            <div className="container clearfix">
-
-                <div className="medium-header-container">
-                    <Link href="/"><a id="site-logo" /></Link>
-                    <div id="mobile-nav-button" className="hidden-desk hidden-tab">
-                        <div id="mobile-nav-icon">
-                            <span />
-                            <span />
-                            <span />
-                            <span />
-                        </div>
-                    </div>
-                </div>
-
-                <nav id="header-nav">
-                    <ul id="nav-ul" className="menu font-reg clearfix">
-                        <li className="menu-item">
-                            <Link href="/resume"><a>about me</a></Link>
-                        </li>
-                        <li className="menu-item">
-                            <Link href="/portfolio"><a>portfolio</a></Link>
-                        </li>
-                        <li className="menu-item">
-                            <a>blog</a>
-                        </li>
-                        <li className="menu-item">
-                            <Link href="/media"><a>media</a></Link>
-                        </li>
-                        <li className="menu-item">
-                            <Link href="/contact"><a>contact</a></Link>
-                        </li>
-                        <li className="menu-item">
-                            <Link href="/contact"><a><strong>start a project</strong></a></Link>
-                        </li>
-                    </ul>
-                </nav>
-
+    <div className="ui container">
+        <div className="ui borderless stackable menu">
+            <div className="item">
+                <Link to="/">
+                    <img className="ui fluid image logo" src="static/images/logo.png" alt="logo" style={{ width: '66px' }} />
+                </Link>
             </div>
+            <a className="item"><Link href="/">Home</Link></a>
+            <a className="item"><Link href="/about">About</Link></a>
         </div>
-    </header>
+    </div>
 );

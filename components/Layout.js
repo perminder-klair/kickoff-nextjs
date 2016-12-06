@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { slugify } from 'underscore.string';
 
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 const {
     APP_NAME,
@@ -18,20 +17,16 @@ const Layout = ({ children, title }) => (
             <meta charSet="UTF-8" />
             <meta name="author" content={APP_AUTHOR} />
             <base href="/" target="_blank" />
-            <link href="static/css/structure.css" rel="stylesheet" type="text/css" />
-            <link href="static/css/style.css" rel="stylesheet" type="text/css" />
-            <link href="static/css/responsive.css" rel="stylesheet" type="text/css" />
-            <link href="static/css/timeline.css" rel="stylesheet" type="text/css" />
-            <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css" />
+
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css" />
+
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
             <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js" />
         </Head>
         <Header />
-        <div id="main-content" className={slugify(title)}>
+        <div className={slugify(title)}>
             {children}
         </div>
-        <Footer />
     </div>
 );
 

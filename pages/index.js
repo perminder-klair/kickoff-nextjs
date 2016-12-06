@@ -1,85 +1,54 @@
 import React from 'react';
-import Link from 'next/link';
 import fetch from 'isomorphic-fetch';
 
 import Layout from '../components/Layout';
-import GithubItem from '../components/GithubItem';
-import TweetItem from '../components/TweetItem';
 
 const {
-    API_URL
+    STACKABLE_URL,
+    STACKABLE_KEY,
+    STACKABLE_GALLERY
 } = require('../utils/config').default;
 
-const TITLE = 'Parminder Singh Klair';
+const TITLE = 'Home';
 
 class Home extends React.Component {
     static async getInitialProps() {
-        const githubRes = await fetch('https://api.github.com/users/perminder-klair/repos?per_page=6');
-        const github = await githubRes.json();
-        const twitterRes = await fetch(`${API_URL}/twitter/feed`);
-        const twitter = await twitterRes.json();
-
-        return { github, twitter };
+        const galleryRes = await fetch(`${STACKABLE_URL}/containers/${STACKABLE_GALLERY}/items?token=${STACKABLE_KEY}`);
+        const gallery = await galleryRes.json();
+        return { gallery };
     }
 
     render() {
-        const { github, twitter } = this.props;
+        const { gallery } = this.props;
 
         return (
             <Layout title={TITLE}>
-                <section className="home-section">
-                    <div id="home-featured-banner" style={{ backgroundImage: 'url(static/img/featured_placeholder_1.jpg)' }}>
-                        <div className="container">
-                            <div className="featured-content featured-left font-reg">
-                                <h2>Hello!<br />I&#39;m Parminder Singh Klair.</h2>
-                                <p>I am a <strong>Website and Application Developer</strong> based in Birmingham, UK. I enjoy working on <strong>usable, clean and practical</strong> web sites.</p>
-                                <Link href="/resume"><a className="primary-button font-reg hov-bk">Learn more</a></Link>
-                            </div>
+                <div className="ui container">
+                    <h3 className="ui top attached header">
+                        Dashboard
+                    </h3>
+                    <div className="ui attached segment">
+                        <p>Welcome to react starting point.</p>
+                        <div className="ui divider" />
+
+                        <div className="ui medium header">Gallery</div>
+                        <div className="ui small images">
+                            {gallery.data.length === 0 ?
+                                <p>No gallery images found</p>
+                                :
+                                    gallery.data.map(item =>
+                                        <img key={item._id} src={item.data.image.url} alt={item.data.title} />
+                            )}
                         </div>
                     </div>
-                </section>
-
-                <p>Apps and websites screen shots here like</p>
-                <img src="static/img/apps-screenshots.png" role="presentation" />
-
-                <section className="page-section">
-                    <div className="container">
-                        <h3>Freelancers. Vetted by Crew. Perfect for you.</h3>
-                        <p>Crew connects you with an acclaimed creative professional or small studio and a smart project management system designed specifically for design and development projects. 99% of our projects have been completed on time, on budget and issue-free.</p>
-                    </div>
-                </section>
-
-                <section className="page-section blog-list-3">
-                    <div className="container">
-                        <ul className="row">
-                            {github.map(item => <GithubItem key={item.id} item={item} />)}
-                        </ul>
-                        <a href="https://github.com/perminder-klair" className="primary-button font-reg hov-bk" target="_blank" rel="noopener noreferrer">all repositories</a>
-                    </div>
-                </section>
-
-                <section className="page-section">
-                    <div className="container">
-                        <ul className="row">
-                            {twitter.map(item => <TweetItem key={item.id} item={item} />)}
-                        </ul>
-                        <a href="https://twitter.com/pinku1" className="primary-button font-reg hov-bk" target="_blank" rel="noopener noreferrer">all tweets</a>
-                    </div>
-                </section>
-
-                <section className="page-section">
-                    <div className="container">
-                        <h3>Fun facts here</h3>
-                    </div>
-                </section>
+                </div>
             </Layout>
         );
     }
 }
 
 Home.propTypes = {
-    github: React.PropTypes.array,
-    twitter: React.PropTypes.array
+    gallery: React.PropTypes.array
 };
 
 export default Home;
