@@ -48,7 +48,7 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-    gallery: React.PropTypes.array
+    gallery: React.PropTypes.object
 };
 
 export default Home;

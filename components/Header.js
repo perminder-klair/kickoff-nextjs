@@ -6,11 +6,11 @@ export default () => (
         <div className="ui borderless stackable menu">
             <div className="item">
                 <Link to="/">
-                    <img className="ui fluid image logo" src="static/images/logo.png" alt="logo" style={{ width: '66px' }} />
+                    <a><img className="ui fluid image logo" src="static/images/logo.png" alt="logo" style={{ width: '66px' }} /></a>
                 </Link>
             </div>
-            <a className="item"><Link href="/">Home</Link></a>
-            <a className="item"><Link href="/about">About</Link></a>
+            <Link href="/"><a className="item">Home</a></Link>
+            <Link href="/about"><a className="item">About</a></Link>
         </div>
     </div>
 );
