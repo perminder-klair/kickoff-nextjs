@@ -1,6 +1,6 @@
 // APP CONFIG
 export default {
-    APP_NAME: 'NextJs Stackable',
+    APP_NAME: 'Kickoff NextJs',
     APP_AUTHOR: 'Parminder Klair',
     ADMIN_EMAIL: '',
 

@@ -1,4 +1,4 @@
-# NextJs Stackable
+# Kickoff NextJs
 
 A starting point using ReactJs, bundled with awesome NextJs.
 
