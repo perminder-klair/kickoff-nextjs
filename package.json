@@ -13,17 +13,19 @@
   "author": "Parminder Klair",
   "license": "ISC",
   "dependencies": {
-    "next": "^1.2.3",
+    "next": "^2.0.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "underscore": "^1.8.3",
     "underscore.string": "^3.3.4"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "eslint": "^3.16.1",
+    "babel-eslint": "^7.2.1",
+    "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-flowtype": "^2.30.0",
+    "eslint-plugin-flowtype": "^2.30.4",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.0"
+    "eslint-plugin-react": "^6.10.3"
   }
 }
