@@ -5,7 +5,7 @@ export default () => (
     <div className="ui container">
         <div className="ui borderless stackable menu">
             <div className="item">
-                <Link to="/">
+                <Link href="/">
                     <a><img className="ui fluid image logo" src="static/images/logo.png" alt="logo" style={{ width: '66px' }} /></a>
                 </Link>
             </div>

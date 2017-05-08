@@ -22,7 +22,7 @@ If you want to use Stackable.space as API to provide data, edit `utils/config.js
 Run:
 
 ```
-npm install
+yarn install
 ```
 
 ## Development
@@ -30,12 +30,12 @@ npm install
 To start development server
 
 ```
-npm run dev
+yarn run dev
 ```
 
 ## Deployment
 
 ```
-npm run build
-npm start
+yarn run build
+yarn start
 ```

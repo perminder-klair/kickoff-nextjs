@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import fetch from 'isomorphic-fetch';
 
 import Layout from '../components/Layout';
@@ -28,7 +29,7 @@ class Home extends React.Component {
                         Dashboard
                     </h3>
                     <div className="ui attached segment">
-                        <p>Welcome to react starting point.</p>
+                        <p>Welcome to NextJs starting point.</p>
                         <div className="ui divider" />
 
                         <div className="ui medium header">Gallery</div>
@@ -48,7 +49,7 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-    gallery: React.PropTypes.object
+    gallery: PropTypes.object
 };
 
 export default Home;
