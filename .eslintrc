@@ -1,24 +1,38 @@
 {
-    "extends": "airbnb",
-    "parser": "babel-eslint",
+    "extends": [
+        "airbnb-base",
+        "plugin:jsx-a11y/recommended",
+        "react"
+    ],
+    "plugins": [
+        "prettier",
+        "import",
+        "jsx-a11y",
+        "react"
+    ],
+    "globals": {
+        "document": true,
+        "window": true,
+        "$": true
+    },
     "rules": {
-        "strict": 0,
-        "indent": [2, 4],
-        "comma-dangle": 0,
-        "new-cap": 0,
-        "camelcase": 0,
-        "class-methods-use-this": 0,
-        "max-len": ["error", 300],
+        "indent": 0,
+        "no-tabs": 0,
         "no-underscore-dangle": 0,
-        "jsx-a11y/anchor-has-content": 0,
-        "import/no-extraneous-dependencies": 0,
-        "react/jsx-indent-props": ['error', 4],
-        "react/jsx-indent": ['error', 4],
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "react/jsx-closing-bracket-location": [2, "after-props"],
+        "space-before-function-paren": 0,
+        "quote-props": 0,
+        "comma-dangle": 0,
+        "operator-linebreak": 0,
+        "react/jsx-wrap-multilines": 0,
         "react/forbid-prop-types": 0,
-        "react/no-did-update-set-state": 0,
-        "react/jsx-no-bind": 0,
-        "react/no-string-refs": 0
+        "prettier/prettier": ["error", {
+            "singleQuote": true,
+            "trailingComma": "all",
+            "bracketSpacing": true,
+            "jsxBracketSameLine": false,
+            "parser": "flow",
+            "useTabs": true,
+            "tabWidth": 4
+        }],
     }
 }
