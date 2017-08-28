@@ -1,5 +1,7 @@
 # Kickoff NextJs
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/perminder-klair/kickoff-nextjs.svg)](https://greenkeeper.io/)
+
 A starting point using ReactJs, bundled with awesome NextJs.
 
 Using Stackable.space as API to provide data
