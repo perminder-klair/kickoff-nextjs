@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "prestart": "next build",
-    "start": "next start -p ${PORT}",
-    "dev": "next -p 9000",
+    "start": "node server.js",
+    "dev": "node server.js",
     "build": "next build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --fix --ext .jsx,.js components/ pages/ utils/"
@@ -14,8 +14,11 @@
   "author": "Parminder Klair",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.1",
     "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.18.1",
     "next": "^4.0.1",
+    "next-routes": "^1.1.0",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-apollo": "^1.4.16",

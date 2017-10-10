@@ -1,5 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
+
+import { Link } from '../routes';
 
 export default () => (
   <div className="ui container">

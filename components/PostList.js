@@ -2,6 +2,8 @@ import React from 'react'; // eslint-disable-line
 import PropTypes from 'prop-types';
 import { gql, graphql } from 'react-apollo';
 
+import { Link } from '../routes';
+
 const PostList = ({ data }) => {
   // console.log('data', data);
   if (data.loading && !data.allPosts) {
@@ -9,7 +11,9 @@ const PostList = ({ data }) => {
   }
 
   if (data.error) {
-    return <div>Error! Failed to fetch.</div>;
+    console.log(data.error); // eslint-disable-line no-console
+    window.alert('Load error, check console'); // eslint-disable-line no-alert
+    return;
   }
 
   return (
@@ -17,7 +21,12 @@ const PostList = ({ data }) => {
       <section className="posts">
         {data.allPosts.map(post => (
           <div key={post.id}>
-            <h3>{post.title}</h3>
+            <Link route="post" params={{ postId: post.id }}>
+              <h3>
+                <a>{post.title}</a>
+              </h3>
+            </Link>
+            <div className="ui divider" />
           </div>
         ))}
       </section>
@@ -44,6 +53,6 @@ const query = gql`
 export default graphql(query, {
   // See the watchQuery API for the options you can provide here
   options: {
-    fetchPolicy: 'network-only',
+    fetchPolicy: 'cache-and-network',
   },
 })(PostList);
