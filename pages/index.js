@@ -14,9 +14,7 @@ const TITLE = 'Home';
 
 class Home extends React.Component {
   static async getInitialProps() {
-    const galleryRes = await fetch(
-      `${STACKABLE_URL}/containers/${STACKABLE_GALLERY}/items?token=${STACKABLE_KEY}`,
-    );
+    const galleryRes = await fetch(`${STACKABLE_URL}/containers/${STACKABLE_GALLERY}/items?token=${STACKABLE_KEY}`); // eslint-disable-line
     const gallery = await galleryRes.json();
     return { gallery };
   }
@@ -34,15 +32,17 @@ class Home extends React.Component {
 
             <div className="ui medium header">Gallery</div>
             <div className="ui small images">
-              {gallery.data.length === 0
-                ? <p>No gallery images found</p>
-                : gallery.data.map(item =>
-                    <img
-                      key={item._id}
-                      src={item.data.image.url}
-                      alt={item.data.title}
-                    />,
-                  )}
+              {gallery.data.length === 0 ? (
+                <p>No gallery images found</p>
+              ) : (
+                gallery.data.map(item => (
+                  <img
+                    key={item._id}
+                    src={item.data.image.url}
+                    alt={item.data.title}
+                  />
+                ))
+              )}
             </div>
           </div>
         </div>
