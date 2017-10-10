@@ -34,7 +34,6 @@ const query = gql`
     allPosts {
       id
       title
-      votes
       createdAt
     }
   }
