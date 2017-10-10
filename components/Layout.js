@@ -7,7 +7,7 @@ import Header from '../components/Header';
 
 const { APP_NAME, APP_AUTHOR } = require('../utils/config').default;
 
-const Layout = ({ children, title }) =>
+const Layout = ({ children, title }) => (
   <div id="app">
     <Head>
       <title>
@@ -17,20 +17,17 @@ const Layout = ({ children, title }) =>
       <meta charSet="UTF-8" />
       <meta name="author" content={APP_AUTHOR} />
       <base href="/" target="_blank" />
-
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css"
       />
-
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js" />
     </Head>
     <Header />
-    <div className={slugify(title)}>
-      {children}
-    </div>
-  </div>;
+    <div className={slugify(title)}>{children}</div>
+  </div>
+);
 
 Layout.defaultProps = {
   title: APP_AUTHOR,

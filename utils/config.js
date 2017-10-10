@@ -9,6 +9,9 @@ export default {
   STACKABLE_KEY: 'bBAtfmcHmgAz',
   STACKABLE_GALLERY: '2n6Lbqw8oAzpQB5Zt',
 
+  GRAPHQL_ENDPOINT:
+    'https://api.graph.cool/simple/v1/cj0ikxyx8zu4d013355xzxmzh',
+
   SOCIAL_FACEBOOK: '',
   SOCIAL_INSTAGRAM: '',
   SOCIAL_TWITTER: '',

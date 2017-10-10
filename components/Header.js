@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default () =>
+export default () => (
   <div className="ui container">
     <div className="ui borderless stackable menu">
       <div className="item">
@@ -22,5 +22,9 @@ export default () =>
       <Link href="/about">
         <a className="item">About</a>
       </Link>
+      <Link href="/posts">
+        <a className="item">Posts</a>
+      </Link>
     </div>
-  </div>;
+  </div>
+);
