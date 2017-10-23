@@ -10,12 +10,16 @@ if (!process.browser) {
   global.fetch = fetch;
 }
 
+const GRAPHQL_URL = Config.DEBUG
+  ? Config.GRAPHQL_ENDPOINT_DEV
+  : Config.GRAPHQL_ENDPOINT;
+
 function create(initialState) {
   return new ApolloClient({
     initialState,
     ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
     networkInterface: createNetworkInterface({
-      uri: Config.GRAPHQL_ENDPOINT, // Server URL (must be absolute)
+      uri: GRAPHQL_URL, // Server URL (must be absolute)
       opts: {
         // Additional fetch() options like `credentials` or `headers`
         credentials: 'same-origin',
