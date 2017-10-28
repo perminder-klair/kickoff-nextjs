@@ -2,22 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Layout from '../components/Layout';
+import ContactForm from '../components/ContactForm';
+import withData from '../utils/withData';
 
-const TITLE = 'About me';
+const TITLE = 'Contact us';
 
-const About = ({ url }) => (
+const Contact = ({ url }) => (
   <Layout title={TITLE} pathname={url.pathname}>
     <div className="ui container">
       <h3 className="ui top attached header">{TITLE}</h3>
       <div className="ui attached segment">
-        <p>This is about page, coming soon!</p>
+        <ContactForm />
       </div>
     </div>
   </Layout>
 );
 
-About.propTypes = {
+Contact.propTypes = {
   url: PropTypes.object.isRequired,
 };
 
-export default About;
+export default withData(Contact);

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-fetch';
+import LazyLoad from 'react-lazyload';
+import styled from 'styled-components';
 
 import Layout from '../components/Layout';
 
@@ -12,6 +14,12 @@ const {
 
 const TITLE = 'Home';
 
+const Header = styled.h3`
+  &&& {
+    color: grey;
+  }
+`;
+
 class Home extends React.Component {
   static async getInitialProps() {
     const galleryRes = await fetch(`${STACKABLE_URL}/containers/${STACKABLE_GALLERY}/items?token=${STACKABLE_KEY}`); // eslint-disable-line
@@ -20,12 +28,12 @@ class Home extends React.Component {
   }
 
   render() {
-    const { gallery } = this.props;
+    const { gallery, url } = this.props;
 
     return (
-      <Layout title={TITLE}>
+      <Layout title={TITLE} pathname={url.pathname}>
         <div className="ui container">
-          <h3 className="ui top attached header">Dashboard</h3>
+          <Header className="ui top attached header">Dashboard</Header>
           <div className="ui attached segment">
             <p>Welcome to NextJs starting point.</p>
             <div className="ui divider" />
@@ -36,11 +44,14 @@ class Home extends React.Component {
                 <p>No gallery images found</p>
               ) : (
                 gallery.data.map(item => (
-                  <img
-                    key={item._id}
-                    src={item.data.image.url}
-                    alt={item.data.title}
-                  />
+                  <LazyLoad height="112" width="150" key={item._id}>
+                    <img
+                      src={item.data.image.url}
+                      alt={item.data.title}
+                      height="112"
+                      width="150"
+                    />
+                  </LazyLoad>
                 ))
               )}
             </div>
@@ -53,6 +64,7 @@ class Home extends React.Component {
 
 Home.propTypes = {
   gallery: PropTypes.object,
+  url: PropTypes.object.isRequired,
 };
 
 export default Home;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // eslint-disable-line
 import PropTypes from 'prop-types';
 import { ApolloProvider, getDataFromTree } from 'react-apollo';
 import Head from 'next/head';
@@ -11,26 +11,14 @@ function getComponentDisplayName(Component) {
 
 export default ComposedComponent =>
   class WithData extends React.Component {
-    /* eslint-disable */
-    static displayName = `WithData(${getComponentDisplayName(ComposedComponent)})`
-    /* eslint-enable */
+    /*eslint-disable */
+    static displayName = `WithData(${getComponentDisplayName(ComposedComponent,)})`;
+    /*eslint-enable */
     static propTypes = {
       serverState: PropTypes.object.isRequired,
     };
 
-    constructor(props) {
-      super(props);
-
-      /* eslint-disable */
-      this.apollo = initApollo(
-        this.props.serverState.apollo
-          ? this.props.serverState.apollo.data
-          : this.props.serverState,
-      );
-      /* eslint-enable */
-    }
-
-    static async getInitialProps(ctx) {
+    static async getInitialProps(ctx) { // eslint-disable-line
       let serverState = {};
 
       // Evaluate the composed component's getInitialProps()
@@ -47,13 +35,13 @@ export default ComposedComponent =>
         const url = { query: ctx.query, pathname: ctx.pathname };
         try {
           // Run all GraphQL queries
-          /* eslint-disable */
+          /*eslint-disable */
           await getDataFromTree(
             <ApolloProvider client={apollo}>
               <ComposedComponent url={url} {...composedInitialProps} />
             </ApolloProvider>,
           );
-          /* eslint-enable */
+          /*eslint-enable */
         } catch (error) {
           // Prevent Apollo Client GraphQL errors from crashing SSR.
           // Handle them in components via the data.error prop:
@@ -64,9 +52,12 @@ export default ComposedComponent =>
         Head.rewind();
 
         // Extract query data from the Apollo store
+        const state = apollo.getInitialState();
+
         serverState = {
           apollo: {
-            data: apollo.cache.extract(),
+            // Only include the Apollo data state
+            data: state.data,
           },
         };
       }
@@ -75,6 +66,11 @@ export default ComposedComponent =>
         serverState,
         ...composedInitialProps,
       };
+    }
+
+    constructor(props) {
+      super(props);
+      this.apollo = initApollo(this.props.serverState);
     }
 
     render() {

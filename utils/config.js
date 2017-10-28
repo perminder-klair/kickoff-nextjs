@@ -1,10 +1,11 @@
 // APP CONFIG
 export default {
-  DEBUG: process.env.NODE_ENV === 'development',
-  
+  DEBUG: false, //process.env.NODE_ENV === 'development',
+
   APP_NAME: 'Kickoff NextJs',
   APP_AUTHOR: 'Parminder Klair',
   ADMIN_EMAIL: '',
+  GOOGLE_ANALYTICS: 'UA-xxxxxxxxx-1',
 
   SITE_URL: 'http://www.my-site.com',
   STACKABLE_URL: 'https://api.stackable.space/v1',

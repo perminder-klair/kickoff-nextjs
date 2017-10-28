@@ -1,6 +1,7 @@
 import React from 'react'; // eslint-disable-line
 import PropTypes from 'prop-types';
-import { gql, graphql } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 import { Link } from '../routes';
 
@@ -12,8 +13,7 @@ const PostList = ({ data }) => {
 
   if (data.error) {
     console.log(data.error); // eslint-disable-line no-console
-    window.alert('Load error, check console'); // eslint-disable-line no-alert
-    return;
+    return <div>Load error, check console</div>;
   }
 
   return (
@@ -21,11 +21,11 @@ const PostList = ({ data }) => {
       <section className="posts">
         {data.allPosts.map(post => (
           <div key={post.id}>
-            <Link route="post" params={{ postId: post.id }}>
-              <h3>
+            <h3>
+              <Link route="post" params={{ postId: post.id }}>
                 <a>{post.title}</a>
-              </h3>
-            </Link>
+              </Link>
+            </h3>
             <div className="ui divider" />
           </div>
         ))}

@@ -1,7 +1,13 @@
-import { ApolloClient, createNetworkInterface } from 'react-apollo'; // eslint-disable-line
+import { ApolloClient } from 'apollo-client';
+import { HttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 import fetch from 'isomorphic-fetch';
 
 import Config from './config';
+
+const GRAPHQL_URL = Config.DEBUG
+  ? Config.GRAPHQL_ENDPOINT_DEV
+  : Config.GRAPHQL_ENDPOINT;
 
 let apolloClient = null;
 
@@ -10,21 +16,17 @@ if (!process.browser) {
   global.fetch = fetch;
 }
 
-const GRAPHQL_URL = Config.DEBUG
-  ? Config.GRAPHQL_ENDPOINT_DEV
-  : Config.GRAPHQL_ENDPOINT;
-
 function create(initialState) {
   return new ApolloClient({
-    initialState,
+    connectToDevTools: process.browser,
     ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
-    networkInterface: createNetworkInterface({
+    link: new HttpLink({
       uri: GRAPHQL_URL, // Server URL (must be absolute)
       opts: {
-        // Additional fetch() options like `credentials` or `headers`
-        credentials: 'same-origin',
+        credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
       },
     }),
+    cache: new InMemoryCache().restore(initialState || {}),
   });
 }
 

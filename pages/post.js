@@ -8,9 +8,11 @@ import withData from '../utils/withData';
 const TITLE = 'Post';
 
 const Post = ({ url }) => (
-  <Layout title={TITLE}>
+  <Layout title={TITLE} pathname={url.pathname}>
     <div className="ui container">
-      <PostInfo postId={url.query.postId} />
+      <div className="ui segment">
+        <PostInfo postId={url.query.postId} />
+      </div>
     </div>
   </Layout>
 );

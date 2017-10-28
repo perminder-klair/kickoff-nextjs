@@ -1,7 +1,8 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import { gql, graphql } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 const PostInfo = ({ data }) => {
   const { Post } = data;
@@ -16,8 +17,7 @@ const PostInfo = ({ data }) => {
 
   if (data.error) {
     console.log(data.error); // eslint-disable-line no-console
-    window.alert('Load error, check console'); // eslint-disable-line no-alert
-    return;
+    return <div>Load error, check console</div>;
   }
 
   return (
