@@ -11,6 +11,7 @@ const handler = routes.getRequestHandler(app);
 
 // start server
 app.prepare().then(() => {
+  console.log(`Next.js live on ${port}`);
   express()
     .use(compression())
     .use(handler)
