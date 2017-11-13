@@ -15,10 +15,4 @@ export default {
   GRAPHQL_ENDPOINT:
     'https://api.graph.cool/simple/v1/cj0ikxyx8zu4d013355xzxmzh',
   GRAPHQL_ENDPOINT_DEV: 'http://localhost:3000/graphql',
-
-  SOCIAL_FACEBOOK: '',
-  SOCIAL_INSTAGRAM: '',
-  SOCIAL_TWITTER: '',
-  SOCIAL_LINKEDIN: '',
-  SOCIAL_GITHUB: '',
 };
