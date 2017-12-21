@@ -7,7 +7,9 @@
     "extends": [
         "airbnb-base",
         "plugin:jsx-a11y/recommended",
-        "react"
+        "react",
+        "prettier",
+        "prettier/react"
     ],
     "plugins": [
         "prettier",
@@ -39,6 +41,6 @@
             "bracketSpacing": true,
             "jsxBracketSameLine": false,
             "parser": "flow"
-        }],
+        }]
     }
 }

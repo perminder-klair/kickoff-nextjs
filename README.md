@@ -2,13 +2,14 @@
 
 A starting point using ReactJs, bundled with awesome NextJs.
 
-Using Stackable.space as API to provide data
+Using Stackable.space and Graph.cool as API to provide data.
 
 ## Stack
 
 - [Next.js](https://zeit.co/blog/next)
 - [React.js](https://facebook.github.io/react/)
 - [Stackable.space](http://www.stackable.space)
+- [Graph.cool](https://www.graph.cool/)
 
 ## To use
 
