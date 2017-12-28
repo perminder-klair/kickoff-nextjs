@@ -16,7 +16,7 @@ Using Stackable.space and Graph.cool as API to provide data.
 - Fork or download this repo
 - Ready!
 
-If you want to use Stackable.space as API to provide data, edit `utils/config.js` file with your `STACKABLE_KEY` and container IDs.
+If you want to use Stackable.space as API to provide data, edit `lib/config.js` file with your `STACKABLE_KEY` and container IDs.
 
 ## Setup
 

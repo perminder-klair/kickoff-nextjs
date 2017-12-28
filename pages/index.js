@@ -10,7 +10,7 @@ const {
   STACKABLE_URL,
   STACKABLE_KEY,
   STACKABLE_GALLERY,
-} = require('../utils/config').default;
+} = require('../lib/config').default;
 
 const TITLE = 'Home';
 
@@ -22,16 +22,17 @@ const Header = styled.h3`
 
 class Home extends React.Component {
   static async getInitialProps() {
-    const galleryRes = await fetch(`${STACKABLE_URL}/containers/${STACKABLE_GALLERY}/items?token=${STACKABLE_KEY}`); // eslint-disable-line
+    const url = `${STACKABLE_URL}/containers/${STACKABLE_GALLERY}/items?token=${STACKABLE_KEY}`;
+    const galleryRes = await fetch(url); // eslint-disable-line
     const gallery = await galleryRes.json();
     return { gallery };
   }
 
   render() {
-    const { gallery, url } = this.props;
+    const { gallery } = this.props;
 
     return (
-      <Layout title={TITLE} pathname={url.pathname}>
+      <Layout title={TITLE}>
         <div className="ui container">
           <Header className="ui top attached header">Dashboard</Header>
           <div className="ui attached segment">
@@ -64,7 +65,6 @@ class Home extends React.Component {
 
 Home.propTypes = {
   gallery: PropTypes.object,
-  url: PropTypes.object.isRequired,
 };
 
 export default Home;

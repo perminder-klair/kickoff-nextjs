@@ -4,9 +4,9 @@ import Head from 'next/head';
 import { slugify } from 'underscore.string';
 
 import Header from '../components/Header';
-import { initGA, logPageView } from '../utils/analytics';
+import { initGA, logPageView } from '../lib/analytics';
 
-const { APP_NAME, APP_AUTHOR } = require('../utils/config').default;
+const { APP_NAME, APP_AUTHOR } = require('../lib/config').default;
 
 class Layout extends React.Component {
   componentDidMount() {
@@ -18,7 +18,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { children, title, pathname } = this.props;
+    const { children, title } = this.props;
 
     return (
       <div id="app">
@@ -45,7 +45,7 @@ class Layout extends React.Component {
             href="/static/styles/nprogress.css"
           />
         </Head>
-        <Header pathname={pathname} />
+        <Header />
         <div className={slugify(title)}>{children}</div>
       </div>
     );
@@ -59,7 +59,6 @@ Layout.defaultProps = {
 Layout.propTypes = {
   children: PropTypes.any.isRequired,
   title: PropTypes.string,
-  pathname: PropTypes.string.isRequired,
 };
 
 export default Layout;

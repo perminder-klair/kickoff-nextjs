@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import Layout from '../components/Layout';
 import PostInfo from '../components/PostInfo';
-import withData from '../utils/withData';
+import withData from '../lib/withData';
 
 const TITLE = 'Post';
 
 const Post = ({ url }) => (
-  <Layout title={TITLE} pathname={url.pathname}>
+  <Layout title={TITLE}>
     <div className="ui container">
       <div className="ui segment">
         <PostInfo postId={url.query.postId} />

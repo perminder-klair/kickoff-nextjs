@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 
-import { Link } from '../routes';
+import Link from './Link';
 
 Router.onRouteChangeStart = url => {
   console.log(`Loading: ${url}`);
@@ -12,7 +11,7 @@ Router.onRouteChangeStart = url => {
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-const Header = ({ pathname }) => (
+const Header = () => (
   <div className="ui container">
     <div className="ui borderless stackable menu">
       <div className="item">
@@ -28,23 +27,19 @@ const Header = ({ pathname }) => (
         </Link>
       </div>
       <Link href="/">
-        <a className={`item ${pathname === '/' && 'active'}`}>Home</a>
+        <a className="item">Home</a>
       </Link>
-      <Link href="/about">
-        <a className={`item ${pathname === '/about' && 'active'}`}>About</a>
+      <Link prefetch href="/about">
+        <a className="item">About</a>
       </Link>
-      <Link href="/posts">
-        <a className={`item ${pathname === '/posts' && 'active'}`}>Posts</a>
+      <Link prefetch href="/posts">
+        <a className="item">Posts</a>
       </Link>
-      <Link href="/contact">
-        <a className={`item ${pathname === '/contact' && 'active'}`}>Contact</a>
+      <Link prefetch href="/contact">
+        <a className="item">Contact</a>
       </Link>
     </div>
   </div>
 );
-
-Header.propTypes = {
-  pathname: PropTypes.string.isRequired,
-};
 
 export default Header;

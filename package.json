@@ -9,7 +9,7 @@
     "dev": "node server.js",
     "build": "next build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --fix --ext .jsx,.js components/ pages/ utils/"
+    "lint": "eslint --fix --ext .jsx,.js components/ pages/ lib/"
   },
   "repository": {
     "type": "git",
@@ -44,6 +44,7 @@
     "graphql": "^0.11.7",
     "graphql-tag": "^2.6.1",
     "isomorphic-fetch": "^2.2.1",
+    "isomorphic-unfetch": "^2.0.0",
     "moment": "^2.20.1",
     "next": "^4.2.1",
     "next-routes": "^1.2.0",
