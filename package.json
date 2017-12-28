@@ -43,7 +43,6 @@
     "formik": "^0.9.4",
     "graphql": "^0.11.7",
     "graphql-tag": "^2.6.1",
-    "isomorphic-fetch": "^2.2.1",
     "isomorphic-unfetch": "^2.0.0",
     "moment": "^2.20.1",
     "next": "^4.2.1",
