@@ -15,5 +15,5 @@ app.prepare().then(() => {
   express()
     .use(compression())
     .use(handler)
-    .listen(port);
+    .listen(port, '0.0.0.0');
 });

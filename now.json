@@ -1,0 +1,8 @@
+{
+	"name": "MY-SITE",
+    "alias": ["MY-SITE.com", "www.MY-SITE.com"],
+	"public": false,
+    "env": {
+        "NODE_ENV": "production"
+    }
+}
