@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import fetch from 'isomorphic-fetch';
+import fetch from 'isomorphic-unfetch';
 import LazyLoad from 'react-lazyload';
 import styled from 'styled-components';
 
