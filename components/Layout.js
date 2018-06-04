@@ -2,11 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { slugify } from 'underscore.string';
+import NProgress from 'nprogress';
+import Router from 'next/router';
 
 import Header from '../components/Header';
 import { initGA, logPageView } from '../lib/analytics';
 
 const { APP_NAME, APP_AUTHOR } = require('../lib/config').default;
+
+Router.onRouteChangeStart = url => {
+  console.log(`Loading: ${url}`);
+  NProgress.start();
+};
+Router.onRouteChangeComplete = () => NProgress.done();
+Router.onRouteChangeError = () => NProgress.done();
 
 class Layout extends React.Component {
   componentDidMount() {
@@ -14,6 +23,7 @@ class Layout extends React.Component {
       initGA();
       window.GA_INITIALIZED = true;
     }
+
     logPageView();
   }
 

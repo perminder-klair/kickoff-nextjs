@@ -3,12 +3,12 @@ import React from 'react';
 import Layout from '../components/Layout';
 import ContactForm from '../components/ContactForm';
 
-const TITLE = 'Contact us';
+const Title = 'Contact us';
 
 const Contact = () => (
-  <Layout title={TITLE}>
+  <Layout title={Title}>
     <div className="ui container">
-      <h3 className="ui top attached header">{TITLE}</h3>
+      <h3 className="ui top attached header">{Title}</h3>
       <div className="ui attached segment">
         <ContactForm />
       </div>

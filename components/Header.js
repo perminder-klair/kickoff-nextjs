@@ -1,15 +1,6 @@
 import React from 'react';
-import NProgress from 'nprogress';
-import Router from 'next/router';
 
 import Link from './Link';
-
-Router.onRouteChangeStart = url => {
-  console.log(`Loading: ${url}`);
-  NProgress.start();
-};
-Router.onRouteChangeComplete = () => NProgress.done();
-Router.onRouteChangeError = () => NProgress.done();
 
 const Header = () => (
   <div className="ui container">

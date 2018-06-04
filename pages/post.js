@@ -1,17 +1,55 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'next/router';
+import moment from 'moment';
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
 
 import Layout from '../components/Layout';
-import PostInfo from '../components/PostInfo';
 
-const TITLE = 'Post';
+const Title = 'Post';
+
+const PostQuery = gql`
+  query Query($id: ID!) {
+    Post(id: $id) {
+      title
+      description
+      id
+      createdAt
+    }
+  }
+`;
 
 const Post = ({ router }) => (
-  <Layout title={TITLE}>
+  <Layout title={Title}>
     <div className="ui container">
       <div className="ui segment">
-        <PostInfo postId={router.query.postId} />
+        {console.log('id', router.query.id)}
+        {router.query.id && (
+          <Query query={PostQuery} variables={{ id: router.query.id }}>
+            {({ loading, error, data }) => {
+              if (loading) return 'Loading...';
+              if (error) return `Error! ${error.message}`;
+              const { Post } = data;
+
+              return (
+                <div>
+                  <h1>{Post.title}</h1>
+                  <span>
+                    ID: <b>{Post.id}</b>
+                  </span>
+                  <span>&nbsp;|&nbsp;</span>
+                  <span>
+                    Created At:{' '}
+                    <b>{moment(Post.createdAt).format('DD.MM.YYYY kk:mm')}</b>
+                  </span>
+                  <hr />
+                  <p>{Post.description}</p>
+                </div>
+              );
+            }}
+          </Query>
+        )}
       </div>
     </div>
   </Layout>
