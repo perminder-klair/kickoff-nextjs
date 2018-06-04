@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'next/router';
 
 import Layout from '../components/Layout';
 import PostInfo from '../components/PostInfo';
-import withData from '../lib/withData';
 
 const TITLE = 'Post';
 
-const Post = ({ url }) => (
+const Post = ({ router }) => (
   <Layout title={TITLE}>
     <div className="ui container">
       <div className="ui segment">
-        <PostInfo postId={url.query.postId} />
+        <PostInfo postId={router.query.postId} />
       </div>
     </div>
   </Layout>
 );
 
 Post.propTypes = {
-  url: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired,
 };
 
-export default withData(Post);
+export default withRouter(Post);

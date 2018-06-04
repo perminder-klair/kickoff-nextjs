@@ -2,7 +2,6 @@ import React from 'react';
 
 import Layout from '../components/Layout';
 import ContactForm from '../components/ContactForm';
-import withData from '../lib/withData';
 
 const TITLE = 'Contact us';
 
@@ -17,4 +16,4 @@ const Contact = () => (
   </Layout>
 );
 
-export default withData(Contact);
+export default Contact;

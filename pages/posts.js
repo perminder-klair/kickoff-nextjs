@@ -2,7 +2,6 @@ import React from 'react';
 
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
-import withData from '../lib/withData';
 
 const TITLE = 'Posts';
 
@@ -17,4 +16,4 @@ const Posts = () => (
   </Layout>
 );
 
-export default withData(Posts);
+export default Posts;

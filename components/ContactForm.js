@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, compose } from 'react-apollo';
@@ -5,10 +6,7 @@ import gql from 'graphql-tag';
 import { withFormik } from 'formik';
 import Yup from 'yup';
 
-let alertify = null;
-if (process.browser) {
-  alertify = require('alertify.js'); // eslint-disable-line
-}
+const alertify = dynamic(import('alertify.js'), { ssr: false });
 
 const ContactForm = props => {
   const {
