@@ -1,3 +1,81 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "root": true,
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "airbnb",
+    "prettier",
+    "plugin:tailwindcss/recommended"
+  ],
+  "plugins": [
+    "prettier",
+    "no-relative-import-paths"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "lf",
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "es5",
+        "importOrder": [
+          "^(server-only$)",
+          "^(react/(.*)$)|^(react$)",
+          "^(next/(.*)$)|^(next$)",
+          "<THIRD_PARTY_MODULES>",
+          "",
+          "^(@/hooks|@/lib|@/store)(/.*)$",
+          "^(@/components)(/.*)$",
+          "",
+          "^[.]"
+        ],
+        "importOrderTypeScriptVersion": "5.1.6",
+        "plugins": [
+          "@ianvs/prettier-plugin-sort-imports",
+          "prettier-plugin-tailwindcss"
+        ]
+      }
+    ],
+    "no-relative-import-paths/no-relative-import-paths": [
+      "warn",
+      {
+        "allowSameFolder": true,
+        "rootDir": "src",
+        "prefix": "@"
+      }
+    ],
+    "import/extensions": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-underscore-dangle": "off",
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/control-has-associated-label": "off"
+  },
+  "settings": {
+    "next": {
+      "rootDir": true
+    }
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "parser": "@typescript-eslint/parser"
+    }
+  ]
 }
